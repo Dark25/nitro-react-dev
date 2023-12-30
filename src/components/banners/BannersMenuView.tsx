@@ -46,7 +46,7 @@ export const BannersMenuView: FC<{}> = props =>
         <>
             { isVisible &&
                 <NitroCardView>
-                    <NitroCardHeaderView headerText="Mis banners" onCloseClick={ event => setIsVisible(false) }/>
+                    <NitroCardHeaderView headerText="Mis banners Test" onCloseClick={ event => setIsVisible(false) }/>
                     <NitroCardContentView>
                         <div className="alert alert-primary text-center">
                         Los banners son imágenes para configurar la vista de tu personaje.<br/>
