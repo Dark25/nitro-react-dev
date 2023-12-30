@@ -64,10 +64,9 @@ export const ChatInputView: FC<{}> = props =>
                             
                             fetch(GetConfiguration<string>('audio.url'), { method:'POST', body: fd })
                                 .then((response) => response.text())
-                                .then((resp) => 
+                                .then((resp) =>
                                 {
                                     sendChatValue(selectedUsername +GetConfiguration<string>('audio.sounds.url') + resp + '.mp3', false);
-                                
                                 })
                         }
                         else 
@@ -335,17 +334,32 @@ export const ChatInputView: FC<{}> = props =>
     return (
         createPortal(
             <>
-                <div id="submenuChat" className="animate__animated animate__fadeInUp animate__faster" style={ { position: 'absolute', backgroundColor: 'rgba(43, 43, 43, 0.8)', top: '-20px', borderRadius: '7px', display: 'none', justifyContent: 'space-around', alignItems: 'center', border: '1px #fff solid', width: '210px', boxSizing: 'border-box' } }> 
+                <div id="submenuChat" className="animate__animated animate__fadeInUp animate__faster" style={
+                    {
+                        padding: '11px 13px 7px 11px',
+                        position: 'absolute',
+                        backgroundColor: 'rgba(43, 43, 43, 0.8)',
+                        top: '-45px',
+                        borderRadius: '7px',
+                        display: 'none',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        border: '1px #fff solid',
+                        width: '195px',
+                        boxSizing: 'border-box',
+                        marginLeft: '2px'
+                    }
+                }>
                     <ChatInputStyleSelectorView chatStyleId={ chatStyleId } chatStyleIds={ chatStyleIds } selectChatStyleId={ updateChatStyleId } />
                     <ChatEmojiSelectorView selectChatEmoji={ selectChatEmoji } />
                     <ChatInputStickersSelectorView selectChatStickers={ selectChatStickers } />
-                    <div id="microphoneOn" onClick={ e => startRecording() } style={ { display: 'inline-block' } } className="icon chatmicrophone-on-icon" />
+                    <div id="microphoneOn" onClick={ e => startRecording() } style={ { marginBottom: '2px' , display: 'inline-block' } } className="icon chatmicrophone-on-icon" />
                     <div id="microphoneOff" onClick={ e => stopRecording() } style={ { display: 'none' } } className="icon chatmicrophone-off-icon" />
-                    <div id="deleteAudio" onClick={ e => deleteRecording() } style={ { display: 'none' } } className="icon chatdeleteaudio-icon" />
-                    <div onClick={ () => hideSubMenu() } className="icon chatequis-icon" style={ { marginLeft: '10px', display: 'inline-block' } } />
+                    <div id="deleteAudio" onClick={ e => deleteRecording() } style={ { marginBottom: '2px' , display: 'none' } } className="icon chatdeleteaudio-icon" />
+                    <div onClick={ () => hideSubMenu() } className="icon chatequis-icon" style={ { display: 'inline-block' } } />
                 </div>
-                <div className="nitro-chat-input-container" style={ { height: '49px' } }> 
-                    <div className="chat-size input-sizer align-items-center" style={ { justifyContent: 'start' } }>
+                <div className="nitro-chat-input-container" style={ { height: '40px' } }>
+                    <div className="chat-size input-sizer align-items-center" style={ { width: '350px' , justifyContent: 'start' } }>
                         <div onClick={ () => showSubMenu() } className="icon chatmas-icon" style={ { marginRight: '3px' } } />
                         { !floodBlocked &&
                     <input style={ { marginLeft: '5px' } } ref={ inputRef } type="text" className="chat-input" placeholder={ LocalizeText('widgets.chatinput.default') } value={ chatValue } maxLength={ maxChatLength } onChange={ event => updateChatInput(event.target.value) } onMouseDown={ event => setInputFocus() } /> }

@@ -44,7 +44,7 @@ export const ChatEmojiSelectorView: FC<ChatEmojiSelectorViewProps> = props =>
 
     return (
         <>
-            <Base pointer style={ { marginLeft: '4px' } } onClick={ toggleSelector }>😎</Base>
+            <Base pointer className="icon chatemojis-icon" onClick={ toggleSelector }></Base>
             <Overlay show={ selectorVisible } target={ target } placement="top">
                 <Popover style={ { width: 'auto' } }>
                     <Picker data={ data } onEmojiSelect={ (emoji: { native: string; }) => selectEmoji(emoji.native) } locale="es" perLine={ 7 } />

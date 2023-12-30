@@ -108,7 +108,7 @@ export const ChatInputStickersSelectorView: FC<ChatInputStickersSelectorViewProp
 
     return (
         <>
-            <Base pointer className="icon chatstickers-icon" onClick={ toggleSelector } style={ { marginLeft: '13px', display: 'inline-block' } }>
+            <Base pointer className="icon chatstickers-icon" onClick={ toggleSelector } style={ { display: 'inline-block' } }>
                 <Overlay show={ selectorVisible } target={ target } placement="top">
                     <Popover className="nitro-chat-sticker-selector-container image-rendering-pixelated">
                         <NitroCardContentView overflow="hidden" className="bg-transparent">
